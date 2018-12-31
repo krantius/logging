@@ -2,7 +2,6 @@ package logging
 
 import "fmt"
 
-// Trace
 func Trace(msg string) {
 	output(TRACE, msg)
 }
