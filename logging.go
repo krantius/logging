@@ -17,7 +17,7 @@ const (
 	ERROR
 )
 
-var logger = log.New(os.Stdout, "", 19)
+var logger = log.New(os.Stdout, "", log.LstdFlags)
 var level = INFO
 
 // SetLevel sets the logging level to the specified value
