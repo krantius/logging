@@ -7,13 +7,7 @@ func Trace(msg string) {
 }
 
 func Tracef(msg string, args ...interface{}) {
-	tmp := make([]interface{}, len(args))
-
-	for i := range args {
-		tmp[i] = args[i]
-	}
-
-	Trace(fmt.Sprintf(msg, tmp...))
+	Trace(fmt.Sprintf(msg, args...))
 }
 
 func Debug(msg string) {
@@ -21,13 +15,7 @@ func Debug(msg string) {
 }
 
 func Debugf(msg string, args ...interface{}) {
-	tmp := make([]interface{}, len(args))
-
-	for i := range args {
-		tmp[i] = args[i]
-	}
-
-	Debug(fmt.Sprintf(msg, tmp...))
+	Debug(fmt.Sprintf(msg, args...))
 }
 
 func Info(msg string) {
@@ -35,13 +23,7 @@ func Info(msg string) {
 }
 
 func Infof(msg string, args ...interface{}) {
-	tmp := make([]interface{}, len(args))
-
-	for i := range args {
-		tmp[i] = args[i]
-	}
-
-	Info(fmt.Sprintf(msg, tmp...))
+	Info(fmt.Sprintf(msg, args...))
 }
 
 func Warning(msg string) {
@@ -49,13 +31,7 @@ func Warning(msg string) {
 }
 
 func Warningf(msg string, args ...interface{}) {
-	tmp := make([]interface{}, len(args))
-
-	for i := range args {
-		tmp[i] = args[i]
-	}
-
-	Warning(fmt.Sprintf(msg, tmp...))
+	Warning(fmt.Sprintf(msg, args...))
 }
 
 func Error(msg string) {
@@ -63,13 +39,7 @@ func Error(msg string) {
 }
 
 func Errorf(msg string, args ...interface{}) {
-	tmp := make([]interface{}, len(args))
-
-	for i := range args {
-		tmp[i] = args[i]
-	}
-
-	Error(fmt.Sprintf(msg, tmp...))
+	Error(fmt.Sprintf(msg, args...))
 }
 
 func output(l Level, msg string) {
