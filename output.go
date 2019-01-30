@@ -1,13 +1,17 @@
 package logging
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+	"strings"
+)
 
 func Trace(msg string) {
 	output(TRACE, msg)
 }
 
 func Tracef(msg string, args ...interface{}) {
-	Trace(fmt.Sprintf(msg, args...))
+	output(TRACE, fmt.Sprintf(msg, args...))
 }
 
 func Debug(msg string) {
@@ -15,7 +19,7 @@ func Debug(msg string) {
 }
 
 func Debugf(msg string, args ...interface{}) {
-	Debug(fmt.Sprintf(msg, args...))
+	output(DEBUG, fmt.Sprintf(msg, args...))
 }
 
 func Info(msg string) {
@@ -23,7 +27,7 @@ func Info(msg string) {
 }
 
 func Infof(msg string, args ...interface{}) {
-	Info(fmt.Sprintf(msg, args...))
+	output(INFO, fmt.Sprintf(msg, args...))
 }
 
 func Warning(msg string) {
@@ -31,7 +35,7 @@ func Warning(msg string) {
 }
 
 func Warningf(msg string, args ...interface{}) {
-	Warning(fmt.Sprintf(msg, args...))
+	output(WARNING, fmt.Sprintf(msg, args...))
 }
 
 func Error(msg string) {
@@ -39,7 +43,7 @@ func Error(msg string) {
 }
 
 func Errorf(msg string, args ...interface{}) {
-	Error(fmt.Sprintf(msg, args...))
+	output(ERROR, fmt.Sprintf(msg, args...))
 }
 
 func output(l Level, msg string) {
@@ -47,17 +51,21 @@ func output(l Level, msg string) {
 		return
 	}
 
+	_, f, line, _ := runtime.Caller(2)
+
+	f = f[strings.LastIndex(f, "/")+1:]
+
 	switch l {
 	case TRACE:
-		logger.Printf("[TRACE] %s\n", msg)
+		logger.Printf("%s:%d [TRACE] %s\n", f, line, msg)
 	case DEBUG:
-		logger.Printf("[DEBUG] %s\n", msg)
+		logger.Printf("%s:%d [DEBUG] %s\n", f, line, msg)
 	case INFO:
-		logger.Printf("[INFO] %s\n", msg)
+		logger.Printf("%s:%d [INFO] %s\n", f, line, msg)
 	case WARNING:
-		logger.Printf("[WARN] %s\n", msg)
+		logger.Printf("%s:%d [WARN] %s\n", f, line, msg)
 	case ERROR:
-		logger.Printf("[ERROR] %s\n", msg)
+		logger.Printf("%s:%d [ERROR] %s\n", f, line, msg)
 	}
 }
 
