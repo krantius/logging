@@ -14,5 +14,5 @@ func TestLog(t *testing.T) {
 	Warning("Warning")
 	Warningf("Warningf")
 	Error("Error")
-	Errorf("Errorf")
+	Errorf("Doing the setuff and things %s", ":PPP")
 }
