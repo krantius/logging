@@ -1,6 +1,7 @@
 package logging
 
 import (
+	"io"
 	"log"
 	"os"
 )
@@ -32,4 +33,12 @@ func SetLevel(l Level) {
 	}
 
 	level = l
+}
+
+func SetOutput(w io.Writer) {
+	traceLogger.SetOutput(w)
+	debugLogger.SetOutput(w)
+	infoLogger.SetOutput(w)
+	warnLogger.SetOutput(w)
+	errorLogger.SetOutput(w)
 }

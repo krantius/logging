@@ -1,3 +1,3 @@
 # Simple Go Logging Library
 
-Dopey logging library built around the Go's standard log package
+Super simple logging library built around the Go standard logger in a format I'm familiar with.
