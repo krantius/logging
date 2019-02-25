@@ -57,15 +57,15 @@ func output(l Level, msg string) {
 
 	switch l {
 	case TRACE:
-		traceLogger.Printf("%s %s:%d\n", msg, f, line)
+		traceLogger.Printf("%s [%s:%d]\n", msg, f, line)
 	case DEBUG:
-		debugLogger.Printf("%s %s:%d\n", msg, f, line)
+		debugLogger.Printf("%s [%s:%d]\n", msg, f, line)
 	case INFO:
-		infoLogger.Printf("%s %s:%d\n", msg, f, line)
+		infoLogger.Printf("%s [%s:%d]\n", msg, f, line)
 	case WARNING:
-		warnLogger.Printf("%s %s:%d\n", msg, f, line)
+		warnLogger.Printf("%s [%s:%d]\n", msg, f, line)
 	case ERROR:
-		errorLogger.Printf("%s %s:%d\n", msg, f, line)
+		errorLogger.Printf("%s [%s:%d]\n", msg, f, line)
 	}
 }
 
